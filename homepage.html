@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Homepage</title>
+</head>
+<script>
+    function getDATA(name) {
+        var req = new XMLHttpRequest;
+        req.open('get', "http://127.0.0.1:8887/" + name);
+        req.onload = function () {
+            var content = document.getElementById("content");
+            content.innerHTML = this.responseText;
+        }
+        req.send();
+
+    }
+</script>
+
+<body>
+    <span onclick="getDATA('popular.htm')">熱門</span>
+    <span onclick="getDATA('latest.htm')">最新</span>
+    <hr>
+    <div id="content"></div>
+</body>
+
+</html>
